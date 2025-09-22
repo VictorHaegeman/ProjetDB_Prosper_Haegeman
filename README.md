@@ -10,6 +10,7 @@ Nous avons rédigé un prompt précis pour obtenir :
 – des règles de gestion en langage métier (non technique) ;
 – un dictionnaire de données brutes (25–35 éléments : signification, type, taille).
 À partir de ces éléments, le MCD est réalisé avec un outil de modélisation (image à insérer à la fin du README ; fichier source déposé dans le dépôt).
+
 	4.	Prompt final (à l’identique)
 Tu travailles dans le domaine de l’automobile premium, spécialisé Porsche.
 Ton entreprise a comme activité de Centre Porsche franchisé en France : configuration et achat de véhicules (neufs et d’occasion labellisés Porsche Approved), suivi de commande et de production, livraison, gestion des reprises et facturation. (Hors périmètre : après-vente/atelier/entretien.)
@@ -24,7 +25,10 @@ D’abord, établis les règles de gestions des données de ton entreprise, sous
 Ensuite, à partir de ces règles, fournis un dictionnaire de données brutes avec les colonnes suivantes, regroupées dans un tableau : signification de la donnée, type, taille en nombre de caractères ou de chiffres. Il doit y avoir entre 25 et 35 données. Il sert à fournir des informations supplémentaires sur chaque données (taille et type) mais sans a priori sur comment les données vont être modélisées ensuite.
 
 Fournis donc les règles de gestion et le dictionnaire de données.
-	5.	Sortie — Règles de gestion (métier)
+
+ 
+ 
+ 5.	Sortie — Règles de gestion (métier)
 – Un client est identifié par un identifiant interne ; un même client peut passer plusieurs commandes.
 – Chaque commande est associée à un et un seul client et porte une configuration figée (modèle, type interne, énergie, transmission, teintes).
 – Les options d’une configuration sont codifiées via des codes usine Porsche ; une configuration peut comporter plusieurs options.
@@ -35,7 +39,10 @@ Fournis donc les règles de gestion et le dictionnaire de données.
 – Une reprise (trade-in) peut être liée à la commande avec indication d’une estimation de valeur.
 – La facturation de vente est émise à la livraison avec le montant TTC.
 – Contraintes de qualité : VIN unique (17 caractères), codes options conformes au référentiel, cohérence des montants, chronologie des dates (statuts, livraison).
-	6.	Sortie — Dictionnaire de données brutes (35 éléments)
+
+ 
+ 
+ 6.	Sortie — Dictionnaire de données brutes (35 éléments)
 (Colonne 1 : Signification — Colonne 2 : Type — Colonne 3 : Taille)
 
 	1.	Client_ID — Numérique entier — 9 chiffres
