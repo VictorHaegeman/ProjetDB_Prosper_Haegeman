@@ -85,3 +85,7 @@ L’image du MCD correspondant (entités/associations/cardinalités) sera ajout�
 	8.	Contenu du dépôt (rappel)
 – Ce rapport (prompt + règles + dictionnaire).
 – L’image du MCD et le fichier source du modeleur.
+
+
+
+![MSD](MCD.jpg)
