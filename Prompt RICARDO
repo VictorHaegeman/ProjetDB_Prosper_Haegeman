@@ -1,45 +1,32 @@
-R — Rôle
-Tu es une IA générative jouant à la fois : 
-1) le commanditaire “Porsche Centre France” (réseau officiel de Centres/Service Porsche) 
-2) un expert métier ventes/SAV Porsche 
-3) un analyste données/MERISE.
+MCD — Vue d’ensemble (texte MERISE)
+Entités (avec attributs clés et principaux)
 
-I — Instructions
-1) Liste d’abord les RÈGLES MÉTIER, structurées par domaines (Véhicule/VIN, Gamme & millésime, Configuration & options, Commande & allocation, Livraison, Garantie & Service, Pièces & campagnes, Réseau de distribution, Financement, Conformité/RGPD).  
-2) Dresse ensuite un **Dictionnaire de données** : entités, attributs (nom, description, type, exemples/format), clés (PK/NK), cardinalités attendues, contraintes d’intégrité.  
-3) Propose les **associations** et **cardinalités** pressenties (préparer la 3FN).  
-4) Intègre **au moins** : (a) 1 association récursive (ex. Employé → Manager), (b) 1 association n-aire (>2) pour la compatibilité d’options par modèle/millésime, (c) 1 entité faible (ex. SélectionOption d’une Configuration).  
-5) Termine par **5–10 questions** pour lever les ambiguïtés.
+CLIENT (IdClient): Nom, Prenom, Email, Téléphone, Adresse, NumPermis, ConsentementRGPD
 
-C — Contexte
-Nous modélisons une BD pour un **Centre Porsche en France** couvrant :  
-• Ventes VN (neuf) & VO (label Porsche Approved), **prise de commande & configuration usine**, suivi des statuts (devis → commande → créneau de production → livraison).  
-• **Après-vente** : plans d’entretien périodiques, ordres de réparation, pièces, campagnes/recalls, garanties (neuf & Approved).  
-• **Financement** via Porsche Financial Services (LOA/LLD/crédit) et assurance.  
-• **Réseau** : Centres Porsche, ateliers, relation client (RGPD).  
-Hypothèses : langue FR, devise EUR, distance en km, fuseau Europe/Paris.
+COMPTE_PORSCHE (PorscheID): StatutCompte (actif/inactif), EmailCompte
 
-A — Contraintes additionnelles
-• Écris en **Markdown** clair, sections/tables.  
-• Respecte la **terminologie Porsche** (VIN, WMI, codes options, “Porsche Approved”, PIWIS).  
-• Propose des **contraintes vérifiables** (unicité VIN, formats codes, incompatibilités d’options, âges/limites garanties selon éligibilité).  
-• Prépare un modèle **normalisé (jusqu’à 3FN)**.
+COMMANDE (IdCommande): DateCommande, NumCommissionUsine, EtatCommande, ModeFinancement, Acompte, PrixTTC
 
-R — Références (à utiliser pour t’aligner sur la réalité métier)
-• Porsche France — Garantie/Approved & infos véhicule (pages officielles).  
-• Porsche — Configurateur (disponibilités & compatibilités d’équipements).  
-• Spécification VIN Porsche (structure WMI/VIN).  
-• WMI Porsche (WP0 voitures, WP1 SUV).  
-• Codes d’options Porsche (référentiel public).  
-• Plans d’entretien officiels (ex. 30 000 km/2 ans, marché A).  
-• Recherche Centre (Service) Porsche (réseau France).
+CONFIGURATION (IdConfig): ModeleCommercial, TypeInterne, Energie, Transmission, CouleurExtCode, CouleurIntCode
 
-D — Rendement désiré
-1) **Règles métier** (liste structurée).  
-2) **Dictionnaire de données** (tableau par entité).  
-3) **Associations pressenties** + contraintes.  
-4) **Questions ouvertes**.  
-Tout en **FR**, concis mais complet.
+OPTION (CodeOption): LibelleOption
 
-O — Objectif
-Obtenir une base métier + données **suffisamment détaillées** pour construire immédiatement un **MCD conforme** (3FN + éléments avancés) puis passer au MLD/MPD.
+VEHICULE (VIN): AnneeModele, CodePays, StatutVehicule (neuf/occasion/Approved), Kilometrage
+
+GARANTIE (IdGarantie): TypeGarantie (Constructeur/Approved/Extension), DateDebut, DateFin
+
+ABONNEMENT_CONNECT (IdAbo): StatutAbo, DateDebut, DateFin
+
+ENTRETIEN (IdEntretien): DateEntretien, TypeEntretien (annuel/intermédiaire/majeur), Kilometrage, Commentaire
+
+PIECE (RefPiece): LibellePiece, PrixCatalogue
+
+TECHNICIEN (IdTech): NomTech, HabilitationHV (oui/non), Specialite
+
+ESSAI_ROUTIER (IdEssai): DateHeure, Duree, PermisVerifie (oui/non)
+
+VEHICULE_REPRIS (IdReprise): Marque, Modele, VIN_Eventuel, Immatriculation, EstimationValeur, EtatGeneral
+
+FACTURE (IdFacture): DateFacture, TypeFacture (Vente/Atelier), MontantHT, TVA, MontantTTC
+
+STATUT_COMMANDE (IdStatutCmd): LibelleStatut, DateStatut, Commentaire
