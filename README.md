@@ -83,16 +83,25 @@ Fournis donc les règles de gestion et le dictionnaire de données.
 
 Notes d’application
 – VIN : 17 caractères, unicité forte ; ne pas tronquer.
+
 – Les codes d’option sont conservés tels quels (ex. “0Q”, “1N3”, “G1D”).
+
 – Les statuts sont historisés via un couple (Statut_Libelle, Statut_Date) ; Statut_Commentaire est facultatif.
+
 – Les montants sont en euros ; 2 décimales.
+
 – Les tailles ci-dessus guident la saisie sans présumer des clés ou de la structure finale (modélisation à l’étape MCD/MLD).
+
 	7.	MCD (à insérer après ce rapport)
 L’image du MCD correspondant (entités/associations/cardinalités) sera ajoutée ici. Le fichier source du MCD (outil de modélisation) est déposé dans le dépôt.
+![MSD](MCD.jpg)
 	8.	Contenu du dépôt (rappel)
 – Ce rapport (prompt + règles + dictionnaire).
+
 – L’image du MCD et le fichier source du modeleur.
 
 
 
-![MSD](MCD.jpg)
+
+
+	7. Contexte 
