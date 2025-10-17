@@ -1,0 +1,15 @@
+Client = (client_ID INT, client_num_permis INT, client_nom VARCHAR(50), client_prenom VARCHAR(50));
+Coordonnées = (telephone_portable INT, mail VARCHAR(100), telephone_fixe INT, #client_ID);
+Adresse = (adresse_ID INT, code_postal INT, n_rue INT, nom_rue VARCHAR(50));
+Statut_commande = (statut_com_ID INT, statut_com_Iibelle VARCHAR(50), statut_com_date DATE, statut_com_commentaire VARCHAR(50));
+Facture = (Facture_ID INT, facture_type VARCHAR(50), facture_date DATE, montant_HT INT, TVA INT, montant_TTC INT);
+Configuration = (config_ID INT, config_modele VARCHAR(50), config_interieur VARCHAR(50), config_energie VARCHAR(50), config_transmission VARCHAR(50), config_code_couleur INT);
+Reprise = (rep_ID INT, rep_marque VARCHAR(50), rep_modele VARCHAR(50), rep_VIN INT, rep_immat VARCHAR(50), rep_estimation_prix INT, rep_etat_vehicule VARCHAR(50));
+Option = (option_ID LOGICAL, option_libelle VARCHAR(50));
+Garantie = (garantie_ID INT, garantie_type VARCHAR(50), garantie_date_debut DATE, garantie_date_fin DATE);
+Commande = (commande_ID INT, commande_date DATE, n_commission_usine INT, commande_statut VARCHAR(50), mode_financement VARCHAR(50), accompte LOGICAL, #rep_ID*, #Facture_ID, #statut_com_ID, #config_ID);
+Vehicule = (VIN INT, vehicule_annee DATE, vehicule_code_pays INT, vehicule_kilometrage INT, vehicule_statut VARCHAR(50), #garantie_ID, #commande_ID*);
+Livraison = (livraison_ID INT, livraison_date DATE, livraison_lieu VARCHAR(50), livraison_checks_docs VARCHAR(50), #commande_ID);
+Habiter = (#client_ID, #adresse_ID);
+Passer = (#client_ID, #commande_ID);
+Choix = (#config_ID, #option_ID);
