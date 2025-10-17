@@ -92,11 +92,11 @@ Notes d’application
 
 – Les tailles ci-dessus guident la saisie sans présumer des clés ou de la structure finale (modélisation à l’étape MCD/MLD).
 
-	7.	MCD (à insérer après ce rapport)
+	7.	MCD
 L’image du MCD correspondant (entités/associations/cardinalités) sera ajoutée ici. Le fichier source du MCD (outil de modélisation) est déposé dans le dépôt.
 ![MSD](MCD.jpg)
 
-	8.	Contenu du dépôt (rappel)
+	8.	Contenu du dépôt
 – Ce rapport (prompt + règles + dictionnaire).
 
 – L’image du MCD et le fichier source du modeleur.
