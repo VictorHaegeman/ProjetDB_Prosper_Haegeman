@@ -64,7 +64,7 @@ SELECT config_energie, COUNT(*) AS nb_vehicules
 FROM Configuration
 GROUP BY config_energie;
 
--- Liste complète des commandes avec client, facture et véhicule
+-- Liste complète des commandes avec client, facture et véhicule A TESTER
 SELECT c.client_nom, c.client_prenom, cmd.commande_ID, cmd.commande_statut,
        f.montant_TTC, v.vehicule_statut
 FROM Client c
@@ -98,38 +98,38 @@ FROM Configuration conf
 JOIN Choix ch ON conf.config_ID = ch.config_ID
 JOIN OptionVehicule ov ON ch.option_ID = ov.option_ID;
 
--- Clients ayant commandé un véhicule déjà livré
-SELECT client_nom, client_prenom
-FROM Client
-WHERE client_ID IN (
-  SELECT p.client_ID
-  FROM Passer p
-  JOIN Commande cmd ON p.commande_ID = cmd.commande_ID
-  WHERE cmd.commande_statut = 'Livrée'
-);
+-- Clients ayant une commande confirmée ou livrée
+SELECT DISTINCT c.client_nom, c.client_prenom
+FROM Client c
+JOIN Passer p ON c.client_ID = p.client_ID
+JOIN Commande cmd ON p.commande_ID = cmd.commande_ID
+WHERE cmd.commande_statut IN ('Confirmée', 'Livrée');
 
--- Commandes dont le montant TTC dépasse la moyenne globale
-SELECT f.facture_ID, f.montant_TTC
-FROM Facture f
-WHERE f.montant_TTC > ALL (
+-- Véhicules associés à une garantie Porsche Approved
+SELECT v.VIN, g.garantie_type, g.garantie_date_debut, g.garantie_date_fin
+FROM Vehicule v
+JOIN Garantie g ON v.garantie_ID = g.garantie_ID
+WHERE g.garantie_type = 'Porsche Approved';
+
+-- Commandes avec un montant TTC supérieur à la moyenne générale des factures
+SELECT cmd.commande_ID, f.montant_TTC
+FROM Commande cmd
+JOIN Facture f ON cmd.facture_ID = f.facture_ID
+WHERE f.montant_TTC > (
   SELECT AVG(montant_TTC) FROM Facture
 );
 
--- Véhicules sans garantie
-SELECT VIN
-FROM Vehicule
-WHERE garantie_ID NOT IN (SELECT garantie_ID FROM Garantie);
-
--- Clients sans commande (NOT EXISTS)
-SELECT client_nom, client_prenom
+-- Clients ayant acheté un véhicule de type "Essence"
+SELECT DISTINCT c.client_nom, c.client_prenom
 FROM Client c
-WHERE NOT EXISTS (
-  SELECT 1 FROM Passer p WHERE p.client_ID = c.client_ID
-);
+JOIN Passer p ON c.client_ID = p.client_ID
+JOIN Commande cmd ON p.commande_ID = cmd.commande_ID
+JOIN Configuration conf ON cmd.config_ID = conf.config_ID
+WHERE conf.config_energie = 'Essence';
 
--- Commandes dont le montant TTC est supérieur à au moins une autre facture
-SELECT commande_ID
-FROM Commande
-WHERE facture_ID = ANY (
-  SELECT facture_ID FROM Facture WHERE montant_TTC < 20000
-);
+-- Modèles de véhicules ayant plus d’une configuration enregistrée
+SELECT conf.config_modele, COUNT(*) AS nb_configurations
+FROM Configuration conf
+GROUP BY conf.config_modele
+HAVING COUNT(*) > 1;
+
