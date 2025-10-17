@@ -96,15 +96,6 @@ Notes d’application
 L’image du MCD correspondant (entités/associations/cardinalités) sera ajoutée ici. Le fichier source du MCD (outil de modélisation) est déposé dans le dépôt.
 ![MSD](MCD.jpg)
 
-	8.	Contenu du dépôt
-– Ce rapport (prompt + règles + dictionnaire).
-
-– L’image du MCD et le fichier source du modeleur.
-
-
-
-
-
 	9. Contexte 
 **Scénario d'utilisation :**
 
