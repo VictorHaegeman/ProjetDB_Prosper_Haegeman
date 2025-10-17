@@ -30,7 +30,7 @@ FROM Vehicule
 WHERE vehicule_statut IN ('Disponible', 'Réservé')
 ORDER BY vehicule_kilometrage ASC;
 
--- Commandes avec acompte versé
+-- Commandes avec acompte versé A TESTER
 SELECT commande_ID, commande_date, accompte
 FROM Commande
 WHERE accompte = 1;
