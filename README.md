@@ -105,4 +105,47 @@ L’image du MCD correspondant (entités/associations/cardinalités) sera ajout�
 
 
 
-	7. Contexte 
+	9. Contexte 
+**Scénario d'utilisation :**
+
+L'entreprise Porsche France dispose d'une base de données centralisant la gestion des commandes clients.
+
+Un conseiller commercial utilise cette base de données pour suivre l'activité des ventes : il doit pouvoir identifier les clients actifs, les véhicules vendus, le chiffres d'affaire généré, les tendances par modèle et par type d'énergie, ainsi que les livraisons récentes.
+
+**Rôle de la personne : Conseiller commercial :**
+
+Mission principale : suivre et analyser les ventes et les commandes afin de piloter l'activité commerciale du concessionnare.
+
+**Données à extraire :**
+
+Le conseiller doit pouvoir consulter et analyser :
+
+1. Les clients ayant passé une commande (nom, prénom, contact, numéro de permis).
+
+2. Les commandes récentes, avec leur statut, leur mode de financement et la date.
+
+3. Les véhicules vendus et leurs caractéristiques (modèle, énergie, transmission, kilométrage).
+
+4. Le montant des ventes réalisées, avec les totaux TTC et le calcul du chiffre d’affaires global ou moyen.
+
+5. Les livraisons récentes ou en attente, avec la date et le lieu.
+
+6. Les options les plus choisies dans les configurations.
+
+7. Les garanties associées aux véhicules livrés.
+
+8. Les commandes annulées ou en attente de validation.
+
+**Objectif du scénario :**
+
+Grâce à ces données, le conseiller doit pouvoir :
+
+1. suivre les ventes et livraisons,
+
+2. identifier les clients les plus actifs,
+
+3. repérer les modèles et énergies les plus demandés,
+
+4. évaluer le chiffre d’affaires par période,
+
+5. détecter les commandes en anomalie (non livrées, annulées…).
