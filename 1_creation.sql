@@ -1,11 +1,11 @@
 -- ======================================================
 -- Fichier : 1_creation.sql
--- Mini-Projet Base de Données - PORSCHE
+-- Mini-Projet Porsche - Création de la base de données
 -- Groupe : Victor Haegeman & Léo Prosper
 -- ======================================================
 
-CREATE DATABASE IF NOT EXISTS porsche_db;
-USE porsche_db;
+CREATE DATABASE IF NOT EXISTS porsche_concession_db;
+USE porsche_concession_db;
 
 -- ======================================================
 -- TABLE CLIENT
@@ -101,7 +101,7 @@ CREATE TABLE Reprise (
 );
 
 -- ======================================================
--- TABLE OPTION
+-- TABLE OPTION VEHICULE
 -- ======================================================
 CREATE TABLE OptionVehicule (
     option_ID BOOLEAN PRIMARY KEY,
@@ -124,7 +124,7 @@ CREATE TABLE Garantie (
 CREATE TABLE Commande (
     commande_ID INT AUTO_INCREMENT PRIMARY KEY,
     commande_date DATE,
-    n_commission_usine INT,
+    n_commission_usine VARCHAR(20),
     commande_statut VARCHAR(50),
     mode_financement VARCHAR(50),
     accompte BOOLEAN,
@@ -132,6 +132,7 @@ CREATE TABLE Commande (
     facture_ID INT,
     statut_com_ID INT,
     config_ID INT,
+    client_ID INT,
     FOREIGN KEY (rep_ID) REFERENCES Reprise(rep_ID)
         ON DELETE SET NULL ON UPDATE CASCADE,
     FOREIGN KEY (facture_ID) REFERENCES Facture(facture_ID)
@@ -139,6 +140,8 @@ CREATE TABLE Commande (
     FOREIGN KEY (statut_com_ID) REFERENCES Statut_commande(statut_com_ID)
         ON DELETE SET NULL ON UPDATE CASCADE,
     FOREIGN KEY (config_ID) REFERENCES Configuration(config_ID)
+        ON DELETE SET NULL ON UPDATE CASCADE,
+    FOREIGN KEY (client_ID) REFERENCES Client(client_ID)
         ON DELETE SET NULL ON UPDATE CASCADE
 );
 
@@ -186,7 +189,7 @@ CREATE TABLE Passer (
 );
 
 -- ======================================================
--- TABLE CHOIX (association entre Configuration et Option)
+-- TABLE CHOIX (association entre Configuration et OptionVehicule)
 -- ======================================================
 CREATE TABLE Choix (
     config_ID INT NOT NULL,
@@ -197,4 +200,3 @@ CREATE TABLE Choix (
     FOREIGN KEY (option_ID) REFERENCES OptionVehicule(option_ID)
         ON DELETE CASCADE ON UPDATE CASCADE
 );
-
