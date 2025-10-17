@@ -30,7 +30,7 @@ Ensuite, à partir de ces règles, fournis un dictionnaire de données brutes av
 
 Fournis donc les règles de gestion et le dictionnaire de données.
 
-	5.	Sortie — Règles de gestion (métier)
+.	Sortie — Règles de gestion (métier)
 – Un client est identifié par un identifiant interne ; un même client peut passer plusieurs commandes.
 – Chaque commande est associée à un et un seul client et porte une configuration figée (modèle, type interne, énergie, transmission, teintes).
 – Les options d’une configuration sont codifiées via des codes usine Porsche ; une configuration peut comporter plusieurs options.
@@ -42,7 +42,7 @@ Fournis donc les règles de gestion et le dictionnaire de données.
 – La facturation de vente est émise à la livraison avec le montant TTC.
 – Contraintes de qualité : VIN unique (17 caractères), codes options conformes au référentiel, cohérence des montants, chronologie des dates (statuts, livraison).
 
-	6.	Sortie — Dictionnaire de données brutes (35 éléments)
+.	Sortie — Dictionnaire de données brutes (35 éléments)
 (Colonne 1 : Signification — Colonne 2 : Type — Colonne 3 : Taille)
 
 	1.	Client_ID — Numérique entier — 9 chiffres
