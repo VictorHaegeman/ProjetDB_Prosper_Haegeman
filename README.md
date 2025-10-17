@@ -95,6 +95,7 @@ Notes d’application
 	7.	MCD (à insérer après ce rapport)
 L’image du MCD correspondant (entités/associations/cardinalités) sera ajoutée ici. Le fichier source du MCD (outil de modélisation) est déposé dans le dépôt.
 ![MSD](MCD.jpg)
+
 	8.	Contenu du dépôt (rappel)
 – Ce rapport (prompt + règles + dictionnaire).
 
