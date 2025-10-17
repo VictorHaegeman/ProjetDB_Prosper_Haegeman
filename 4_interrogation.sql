@@ -105,7 +105,7 @@ JOIN Passer p ON c.client_ID = p.client_ID
 JOIN Commande cmd ON p.commande_ID = cmd.commande_ID
 WHERE cmd.commande_statut IN ('Confirmée', 'Livrée');
 
--- Véhicules associés à une garantie Porsche Approved
+-- Véhicules associés à une garantie Porsche Approved A TESTER
 SELECT v.VIN, g.garantie_type, g.garantie_date_debut, g.garantie_date_fin
 FROM Vehicule v
 JOIN Garantie g ON v.garantie_ID = g.garantie_ID
