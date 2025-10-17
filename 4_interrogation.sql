@@ -1,3 +1,10 @@
+-- ======================================================
+-- Fichier : 4_interrogation.sql
+-- Mini-Projet Porsche - Requêtes de test
+-- ======================================================
+
+USE porsche_concession_db;
+
 -- Liste des clients ayant passé au moins une commande
 SELECT DISTINCT c.client_nom, c.client_prenom, co.mail, co.telephone_portable
 FROM Client c
@@ -24,9 +31,9 @@ WHERE vehicule_statut IN ('Disponible', 'Réservé')
 ORDER BY vehicule_kilometrage ASC;
 
 -- Commandes avec acompte versé
-SELECT commande_ID, commande_date, acompte
+SELECT commande_ID, commande_date, accompte
 FROM Commande
-WHERE acompte = 1;
+WHERE accompte = 1;
 
 -- Nombre de commandes par statut
 SELECT commande_statut, COUNT(*) AS nb_commandes
