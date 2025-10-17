@@ -15,7 +15,7 @@ Nous avons rédigé un prompt précis pour obtenir :
 – un dictionnaire de données brutes (25–35 éléments : signification, type, taille).
 À partir de ces éléments, le MCD est réalisé avec un outil de modélisation (image à insérer à la fin du README ; fichier source déposé dans le dépôt).
 
-	4.	Prompt final (à l’identique)
+	4.	Prompt partie 1 (à l’identique)
 Tu travailles dans le domaine de l’automobile premium, spécialisé Porsche.
 Ton entreprise a comme activité de Centre Porsche franchisé en France : configuration et achat de véhicules (neufs et d’occasion labellisés Porsche Approved), suivi de commande et de production, livraison, gestion des reprises et facturation. (Hors périmètre : après-vente/atelier/entretien.)
 C’est une entreprise comme Centre Porsche Paris, Centre Porsche Lyon, Centre Porsche Bordeaux (réseau officiel Porsche).
