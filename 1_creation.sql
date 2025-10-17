@@ -1,7 +1,7 @@
 -- ======================================================
 -- Fichier : 1_creation.sql
 -- Mini-Projet Base de Données - PORSCHE
--- Groupe : Victor Haegeman & [Nom binôme]
+-- Groupe : Victor Haegeman & Léo Prosper
 -- ======================================================
 
 CREATE DATABASE IF NOT EXISTS porsche_db;
