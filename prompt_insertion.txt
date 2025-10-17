@@ -88,21 +88,21 @@ VALUES (1, 457821963, 'Dupont', 'Pierre'),
 
 
 Respecte cet ordre logique (afin de préserver les clés étrangères) :
-1️⃣ Client
-2️⃣ Coordonnées
-3️⃣ Adresse
-4️⃣ Habiter
-5️⃣ Statut_commande
-6️⃣ Facture
-7️⃣ Configuration
-8️⃣ Option
-9️⃣ Choix
-🔟 Reprise
-11️⃣ Commande
-12️⃣ Vehicule
-13️⃣ Livraison
-14️⃣ Garantie
-15️⃣ Passer
+1. Client
+2. Coordonnées
+3. Adresse
+4. Habiter
+5. Statut_commande
+6. Facture
+7. Configuration
+8. Option
+9. Choix
+10. Reprise
+11. Commande
+12. Vehicule
+13. Livraison
+14.  Garantie
+15.  Passer
 
 Les valeurs doivent être cohérentes entre tables (par ex. commande_ID 1 correspond au client_ID 1).
 
