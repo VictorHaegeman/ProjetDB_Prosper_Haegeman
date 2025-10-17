@@ -133,3 +133,9 @@ FROM Configuration conf
 GROUP BY conf.config_modele
 HAVING COUNT(*) > 1;
 
+-- Configurations dont toutes les factures associées dépassent 100000€ (utilisation de ALL)
+SELECT DISTINCT conf.config_modele, f.montant_TTC
+FROM Configuration conf
+JOIN Commande cmd ON conf.config_ID = cmd.config_ID
+JOIN Facture f ON cmd.facture_ID = f.facture_ID
+WHERE f.montant_TTC > ALL (SELECT 100000);
