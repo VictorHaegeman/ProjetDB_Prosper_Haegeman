@@ -30,7 +30,7 @@ Ensuite, à partir de ces règles, fournis un dictionnaire de données brutes av
 
 Fournis donc les règles de gestion et le dictionnaire de données.
 
-.	Sortie — Règles de gestion (métier)
+Sortie — Règles de gestion (métier)
 – Un client est identifié par un identifiant interne ; un même client peut passer plusieurs commandes.
 – Chaque commande est associée à un et un seul client et porte une configuration figée (modèle, type interne, énergie, transmission, teintes).
 – Les options d’une configuration sont codifiées via des codes usine Porsche ; une configuration peut comporter plusieurs options.
@@ -42,44 +42,44 @@ Fournis donc les règles de gestion et le dictionnaire de données.
 – La facturation de vente est émise à la livraison avec le montant TTC.
 – Contraintes de qualité : VIN unique (17 caractères), codes options conformes au référentiel, cohérence des montants, chronologie des dates (statuts, livraison).
 
-.	Sortie — Dictionnaire de données brutes (35 éléments)
+Sortie — Dictionnaire de données brutes (35 éléments)
 (Colonne 1 : Signification — Colonne 2 : Type — Colonne 3 : Taille)
 
-	1.	Client_ID — Numérique entier — 9 chiffres
-	2.	Client_Nom — Texte — 50
-	3.	Client_Prenom — Texte — 50
-	4.	Client_Email — Texte (email) — 100
-	5.	Client_Telephone — Texte (numéro) — 15
-	6.	Client_Adresse — Texte (voie + CP + ville) — 180
-	7.	Client_ConsentementMarketing — Enum (oui/non) — 5
-	8.	Commande_ID — Numérique entier — 9 chiffres
-	9.	Commande_Date — Date — —
-	10.	Commande_NumCommission — Texte — 12
-	11.	Commande_ModeFinancement — Enum (comptant/credit/LOA/LLD) — 10
-	12.	Commande_Acompte — Décimal — 10,2
-	13.	Commande_PrixBaseTTC — Décimal — 12,2
-	14.	Commande_PrixTotalTTC — Décimal — 12,2
-	15.	Configuration_ID — Numérique entier — 9 chiffres
-	16.	Modele_Commercial — Texte — 60
-	17.	Type_Interne — Texte — 6
-	18.	Energie — Enum (essence/hybride/électrique) — 12
-	19.	Transmission — Enum (BVM/PDK/AT) — 12
-	20.	CouleurExt_Code — Texte — 8
-	21.	CouleurInt_Code — Texte — 8
-	22.	Option_Code — Texte (code usine) — 6
-	23.	Option_Libelle — Texte — 100
-	24.	ConfigOption_Quantite — Numérique entier — 2 chiffres
-	25.	ConfigOption_PrixUnitaireTTC — Décimal — 10,2
-	26.	Vehicule_VIN — Texte (numéro de série) — 17
-	27.	Livraison_ID — Numérique entier — 9 chiffres
-	28.	Livraison_Date — Date — —
-	29.	Livraison_Lieu — Texte — 60
-	30.	Statut_Libelle — Texte — 20
-	31.	Statut_Date — Date — —
-	32.	Statut_Commentaire — Texte — 200
-	33.	Facture_ID — Numérique entier — 9 chiffres
-	34.	Facture_MontantTTC — Décimal — 12,2
-	35.	Reprise_Estimation — Décimal — 12,2
+1.	Client_ID — Numérique entier — 9 chiffres
+2.	Client_Nom — Texte — 50
+3.	Client_Prenom — Texte — 50
+4.	Client_Email — Texte (email) — 100
+5.	Client_Telephone — Texte (numéro) — 15
+6.	Client_Adresse — Texte (voie + CP + ville) — 180
+7.	Client_ConsentementMarketing — Enum (oui/non) — 5
+8.	Commande_ID — Numérique entier — 9 chiffres
+9.	Commande_Date — Date — —
+10.	Commande_NumCommission — Texte — 12
+11.	Commande_ModeFinancement — Enum (comptant/credit/LOA/LLD) — 10
+12.	Commande_Acompte — Décimal — 10,2
+13.	Commande_PrixBaseTTC — Décimal — 12,2
+14.	Commande_PrixTotalTTC — Décimal — 12,2
+15.	Configuration_ID — Numérique entier — 9 chiffres
+16.	Modele_Commercial — Texte — 60
+17.	Type_Interne — Texte — 6
+18.	Energie — Enum (essence/hybride/électrique) — 12
+19.	Transmission — Enum (BVM/PDK/AT) — 12
+20.	CouleurExt_Code — Texte — 8
+21.	CouleurInt_Code — Texte — 8
+22.	Option_Code — Texte (code usine) — 6
+23.	Option_Libelle — Texte — 100
+24.	ConfigOption_Quantite — Numérique entier — 2 chiffres
+25.	ConfigOption_PrixUnitaireTTC — Décimal — 10,2
+26.	Vehicule_VIN — Texte (numéro de série) — 17
+27.	Livraison_ID — Numérique entier — 9 chiffres
+28.	Livraison_Date — Date — —
+29.	Livraison_Lieu — Texte — 60
+30.	Statut_Libelle — Texte — 20
+31.	Statut_Date — Date — —
+32.	Statut_Commentaire — Texte — 200
+33.	Facture_ID — Numérique entier — 9 chiffres
+34.	Facture_MontantTTC — Décimal — 12,2
+35.	Reprise_Estimation — Décimal — 12,2
 
 Notes d’application
 – VIN : 17 caractères, unicité forte ; ne pas tronquer.
