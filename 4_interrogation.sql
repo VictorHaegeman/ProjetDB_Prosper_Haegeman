@@ -59,7 +59,7 @@ FROM Choix
 GROUP BY config_ID
 HAVING COUNT(option_ID) >= 1;
 
--- Nombre de véhicules par type d’énergie
+-- Nombre de véhicules par type d’énergie A TESTER
 SELECT config_energie, COUNT(*) AS nb_vehicules
 FROM Configuration
 GROUP BY config_energie;
