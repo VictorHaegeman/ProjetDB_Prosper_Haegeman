@@ -102,15 +102,124 @@ Notes d’application
 
 – Les tailles ci-dessus guident la saisie sans présumer des clés ou de la structure finale (modélisation à l’étape MCD/MLD).
 
-	7.	MCD
+	5.	MCD
 L’image du MCD correspondant (entités/associations/cardinalités) sera ajoutée ici. Le fichier source du MCD (outil de modélisation) est déposé dans le dépôt.
 ![MSD](MCD.jpg)
 
 	6. Prompt partie 2
 
+Tu travailles dans le domaine de l’automobile premium, au sein d’un Centre Porsche franchisé en France.
+Ton entreprise a pour activité la configuration, la vente et la livraison de véhicules neufs et d’occasion labellisés Porsche Approved, ainsi que la gestion des reprises, des financements et de la facturation.
+(Hors périmètre : atelier, entretien, après-vente.)
+
+C’est une entreprise comme Centre Porsche Paris, Centre Porsche Lyon, ou Centre Porsche Bordeaux, qui fait partie du réseau officiel Porsche France.
+Elle gère l’ensemble du processus de vente : du client au véhicule livré, en passant par la commande, la configuration, le suivi de production, la facturation et la garantie.
+
+Objectif :
+Tu dois générer automatiquement des données d’insertion SQL réalistes et cohérentes, destinées à remplir la base de données Porsche utilisée pour la gestion des commandes et livraisons.
+Ces données doivent correspondre au Modèle Logique de Données (MLD) suivant :
+
+Client(client_ID, client_num_permis, client_nom, client_prenom)
+
+Coordonnées(telephone_portable, mail, telephone_fixe, #client_ID)
+
+Adresse(adresse_ID, code_postal, n_rue, nom_rue)
+
+Statut_commande(statut_com_ID, statut_com_libelle, statut_com_date, statut_com_commentaire)
+
+Facture(facture_ID, facture_type, facture_date, montant_HT, TVA, montant_TTC)
+
+Configuration(config_ID, config_modele, config_interieur, config_energie, config_transmission, config_code_couleur)
+
+Reprise(rep_ID, rep_marque, rep_modele, rep_VIN, rep_immat, rep_estimation_prix, rep_etat_vehicule)
+
+Option(option_ID, option_libelle)
+
+Garantie(garantie_ID, garantie_type, garantie_date_debut, garantie_date_fin)
+
+Commande(commande_ID, commande_date, n_commission_usine, commande_statut, mode_financement, accompte, #rep_ID, #facture_ID, #statut_com_ID, #config_ID)
+
+Vehicule(VIN, vehicule_annee, vehicule_code_pays, vehicule_kilometrage, vehicule_statut, #garantie_ID, #commande_ID)
+
+Livraison(livraison_ID, livraison_date, livraison_lieu, livraison_checks_docs, #commande_ID)
+
+Habiter(#client_ID, #adresse_ID)
+
+Passer(#client_ID, #commande_ID)
+
+Choix(#config_ID, #option_ID)
+
+Règles de cohérence à respecter :
+
+Relations de clé étrangère : toutes les clés marquées par # doivent exister avant d’être référencées.
+Exemple : un client_ID doit être créé avant sa commande, un commande_ID avant sa livraison.
+
+Nombres de lignes : génère entre 10 et 20 enregistrements par table.
+
+Valeurs réalistes et variées :
+
+Noms et prénoms français plausibles.
+
+Emails valides, téléphones français (06/07).
+
+Adresses cohérentes (n° + rue + code postal + ville).
+
+Véhicules Porsche actuels (911, Taycan, Cayenne, Panamera, Macan, 718).
+
+Codes d’options conformes aux formats usine (ex : "0Q", "1N3", "G1D").
+
+VIN : 17 caractères uniques, mélange de lettres et chiffres.
+
+Statuts de commande parmi : 'En attente', 'Confirmée', 'En production', 'Livrée'.
+
+Modes de financement : 'Comptant', 'Crédit', 'LOA', 'LLD'.
+
+Montants positifs, TVA réaliste (~20%), TTC ≥ HT.
+
+Chronologie cohérente : commande < livraison < facture < garantie.
+
+Types logiques :
+
+accompte = 0 ou 1
+
+livraison_checks_docs = 'Oui' ou 'Non'
+
+vehicule_statut = 'Disponible', 'Vendu', 'Réservé'
+
+Tâche :
+
+Génère pour chaque table un bloc SQL d’insertion clair, sous la forme :
+
+-- Insertion dans la table Client
+INSERT INTO Client (client_ID, client_num_permis, client_nom, client_prenom)
+VALUES (1, 457821963, 'Dupont', 'Pierre'),
+       (2, 475893126, 'Martin', 'Claire'),
+       (3, 468912754, 'Durand', 'Julien');
 
 
-	9. Contexte 
+Respecte cet ordre logique (afin de préserver les clés étrangères) :
+1. Client
+2. Coordonnées
+3. Adresse
+4. Habiter
+5. Statut_commande
+6. Facture
+7. Configuration
+8. Option
+9. Choix
+10. Reprise
+11. Commande
+12. Vehicule
+13. Livraison
+14.  Garantie
+15.  Passer
+
+Les valeurs doivent être cohérentes entre tables (par ex. commande_ID 1 correspond au client_ID 1).
+
+N’utilise aucune donnée fictive aléatoire qui violerait la cohérence du modèle (pas de dates inversées ou de montants négatifs).
+
+
+	7. Contexte 
 **Scénario d'utilisation :**
 
 L'entreprise Porsche France dispose d'une base de données centralisant la gestion des commandes clients.
