@@ -1,7 +1,7 @@
 -- ======================================================
 -- Fichier : 2_contraintes.sql
 -- Mini-Projet Porsche - Contraintes de validation
--- Groupe : Victor Haegeman & [Nom du binôme]
+-- Groupe : Victor Haegeman & Léo Prosper
 -- ======================================================
 
 USE porsche_db;
